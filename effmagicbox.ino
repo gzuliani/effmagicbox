@@ -119,7 +119,8 @@ void exec_bt_command() {
         hc05_serial.print("ERR");
       else {
         for (int i = 0; i < max_indicators; i++)
-          hc05_serial.print(input_levels[i] == HIGH ? 'H' : 'L');
+          // warning: readings are active low!
+          hc05_serial.print(input_levels[i] == HIGH ? 'L' : 'H');
       }
     }
 
